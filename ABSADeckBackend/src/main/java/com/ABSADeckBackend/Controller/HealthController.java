@@ -45,14 +45,12 @@ public class HealthController {
 	@PostMapping("/save")
 	public @ResponseBody Health save(@RequestBody Health health, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-			System.out.println("there was an error");
             throw new ValidationException();
         }
 		
 		else
 		{
 			healthService.save(health);
-			System.out.println("In controller, Health saved successfully.");
 		}
 		
 		return health;
